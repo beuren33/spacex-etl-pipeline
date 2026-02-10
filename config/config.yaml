@@ -1,6 +1,8 @@
 api:
   base_url: "https://api.spacexdata.com"
-  version: "v4"  
-  endpoints: 
-    lauches: "/lauches"
+  version: "v4"
+  timeout: 30
+  retry_attempts: 3
+  endpoints:
+    launches: "/launches"
     rockets: "/rockets"
