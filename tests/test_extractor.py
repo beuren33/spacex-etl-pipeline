@@ -1,7 +1,6 @@
 import requests
 from src.extract.spacex_extractor import SpaceXExtractor
 
-
 def test_get_data_success(mocker):
 
     mock_response = mocker.Mock()
