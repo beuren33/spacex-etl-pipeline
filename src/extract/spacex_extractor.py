@@ -7,7 +7,11 @@ from typing import List, Dict, Optional
 
 class SpaceXExtractor:
 
-    def __init__(self, base_url: str, version: str, timeout: int, retry_attempts: int):
+    def __init__(self, 
+                 base_url: str, 
+                 version: str, 
+                 timeout: int, 
+                 retry_attempts: int):
         self.base_url = base_url.rstrip("/")
         self.version = version
         self.timeout = timeout
@@ -28,8 +32,9 @@ class SpaceXExtractor:
                 print(f"Erro na requisição: {e}. Tentando novamente")
                 time.sleep(5)
 
-        # Quebra de linha aqui para evitar o erro E501
-        msg = f"Falha ao buscar dados de {url} após {self.retry_attempts} tentat."
+        msg = f"""
+        Falha ao buscar dados de {url} após {self.retry_attempts} tentat.
+        """
         print(msg)
         return None
 
