@@ -45,7 +45,7 @@ class SpaceXTransformer:
             "rocket_name",
             "cost_per_launch",
             "mass_kg",
-            "active"
+            "active",
         ]
-        
+
         return df[relevant_cols]

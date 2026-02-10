@@ -7,8 +7,7 @@ from typing import List, Dict, Optional
 
 class SpaceXExtractor:
 
-    def __init__(self, base_url: str, version: str, timeout: int,
-                 retry_attempts: int):
+    def __init__(self, base_url: str, version: str, timeout: int, retry_attempts: int):
         self.base_url = base_url.rstrip("/")
         self.version = version
         self.timeout = timeout
