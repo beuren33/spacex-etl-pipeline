@@ -4,6 +4,7 @@ import time
 import os
 from typing import List, Dict, Optional
 
+
 class SpaceXExtractor:
 
     def __init__(self, base_url: str, version: str, timeout: int, retry_attempts: int):
@@ -33,8 +34,8 @@ class SpaceXExtractor:
     def save_to_json(self, data: List[Dict], directory: str, filename: str):
         if not os.path.exists(directory):
             os.makedirs(directory)
-        
+
         filepath = os.path.join(directory, filename)
-        with open(filepath, 'w', encoding='utf-8') as f:
+        with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
         print(f"Dados salvos em {filepath}")

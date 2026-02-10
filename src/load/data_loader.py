@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 
+
 class DataLoader:
     def save_dataframe(self, df: pd.DataFrame, directory: str, filename: str):
         if df.empty:
