@@ -1,0 +1,6 @@
+api:
+  base_url: "https://api.spacexdata.com"
+  version: "v4"  
+  endpoints: 
+    lauches: "/lauches"
+    rockets: "/rockets"
