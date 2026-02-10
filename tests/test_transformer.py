@@ -1,4 +1,3 @@
-import pandas as pd
 from src.transform.spacex_transformer import SpaceXTransformer
 import pytest
 
@@ -17,12 +16,10 @@ def sample_launches_data():
 
 
 def test_transform_launches(sample_launches_data):
-
     transformer = SpaceXTransformer()
-
     transformed_df = transformer.transform_launches(sample_launches_data)
 
     assert not transformed_df.empty
     assert "year" in transformed_df.columns
     assert transformed_df.iloc[0]["year"] == 2022
-    assert transformed_df.iloc[0]["success"] == True
+    assert transformed_df.iloc[0]["success"] is True

@@ -4,7 +4,6 @@ from typing import List, Dict
 
 class SpaceXTransformer:
     def transform_launches(self, launches_data: List[Dict]) -> pd.DataFrame:
-
         if not launches_data:
             return pd.DataFrame()
 
@@ -39,6 +38,14 @@ class SpaceXTransformer:
             lambda x: x.get("kg") if isinstance(x, dict) else None
         )
 
-        relevant_cols = ["id", "name", "cost_per_launch", "mass_kg", "active"]
         df = df.rename(columns={"id": "rocket_id", "name": "rocket_name"})
+
+        relevant_cols = [
+            "rocket_id",
+            "rocket_name",
+            "cost_per_launch",
+            "mass_kg",
+            "active"
+        ]
+        
         return df[relevant_cols]

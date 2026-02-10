@@ -7,7 +7,8 @@ from typing import List, Dict, Optional
 
 class SpaceXExtractor:
 
-    def __init__(self, base_url: str, version: str, timeout: int, retry_attempts: int):
+    def __init__(self, base_url: str, version: str, timeout: int,
+                 retry_attempts: int):
         self.base_url = base_url.rstrip("/")
         self.version = version
         self.timeout = timeout
@@ -17,18 +18,20 @@ class SpaceXExtractor:
         return f"{self.base_url}/{self.version}{endpoint}"
 
     def get_data(self, endpoint: str) -> Optional[List[Dict]]:
-
         url = self._build_url(endpoint)
         for attempt in range(self.retry_attempts):
             try:
-                print(f"Buscando dados de {url} (tentativa {attempt + 1})...")
+                print(f"Buscando dados de {url} (tentativa {attempt + 1})")
                 response = requests.get(url, timeout=self.timeout)
                 response.raise_for_status()
                 return response.json()
             except requests.RequestException as e:
                 print(f"Erro na requisição: {e}. Tentando novamente")
                 time.sleep(5)
-        print(f"Falha ao buscar dados de {url} após {self.retry_attempts} tentativas.")
+
+        # Quebra de linha aqui para evitar o erro E501
+        msg = f"Falha ao buscar dados de {url} após {self.retry_attempts} tentat."
+        print(msg)
         return None
 
     def save_to_json(self, data: List[Dict], directory: str, filename: str):

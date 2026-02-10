@@ -1,6 +1,5 @@
-import pytest
-from src.extract.spacex_extractor import SpaceXExtractor
 import requests
+from src.extract.spacex_extractor import SpaceXExtractor
 
 
 def test_get_data_success(mocker):
@@ -20,7 +19,9 @@ def test_get_data_success(mocker):
 
 
 def test_get_data_failure(mocker):
-    mocker.patch("requests.get", side_effect=requests.exceptions.RequestException)
+    mocker.patch(
+        "requests.get", side_effect=requests.exceptions.RequestException
+    )
 
     extractor = SpaceXExtractor("http://fakeapi.com", "v4", 10, 2)
     data = extractor.get_data("/launches")
