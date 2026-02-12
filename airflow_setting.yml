@@ -1,0 +1,11 @@
+airflow:
+  conn:
+    - conn_id: postgres_default
+      conn_type: postgres
+      conn_host: postgres
+      conn_shema: airflow
+      conn_login: airflow
+      conn_password: airflow
+      conn_port: 5432
+  pools: []
+  variables: []

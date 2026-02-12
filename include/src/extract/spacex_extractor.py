@@ -35,7 +35,7 @@ class SpaceXExtractor:
         msg = f"""
         Falha ao buscar dados de {url} após {self.retry_attempts} tentat.
         """
-        print(msg)
+        print(f"Falha ao buscar dados de {url} após {self.retry_attempts} tentat")
         return None
 
     def save_to_json(self, data: List[Dict], directory: str, filename: str):

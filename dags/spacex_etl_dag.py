@@ -17,9 +17,14 @@ def spacex_etl():
     def extract_data():
         import yaml
         import logging
-        from src.extract.spacex_extractor import SpaceXExtractor
+        import sys
+        from include.src.extract.spacex_extractor import SpaceXExtractor
         
-        with open('/opt/airflow/config/config.yaml', 'r') as f:
+        sys.path.insert(0, '/usr/local/airflow/include')
+
+        config_path = '/usr/local/airflow/include/config/config.yaml'
+
+        with open(config_path, 'r') as f:
             config = yaml.safe_load(f)
         
        
@@ -44,8 +49,10 @@ def spacex_etl():
 
     @task
     def transform_data(raw_data):
-        from src.transform.spacex_transform import SpaceXTransformer
+        import sys
+        from include.src.transform.spacex_transform import SpaceXTransformer
         
+        sys.path.insert(0, '/usr/local/airflow/include')
         transformer = SpaceXTransformer()
         launches_df = transformer.transform_launches(raw_data['launches'])
         rockets_df = transformer.transform_rockets(raw_data['rockets'])
@@ -59,8 +66,10 @@ def spacex_etl():
 
     @task
     def load_data(clean_data_dict):
-        from src.load.data_loader import DataLoader
+        from include.src.load.data_loader import DataLoader
         import pandas as pd
+        import sys
+        sys.path.insert(0, '/usr/local/airflow/include')
         
         df = pd.DataFrame(clean_data_dict)
         loader = DataLoader()
