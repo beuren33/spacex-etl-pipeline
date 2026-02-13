@@ -1,4 +1,4 @@
-FROM apache/airflow:2.5.0
+FROM quay.io/astronomer/astro-runtime:12.1.1
 
 ENV PYTHONPATH="/opt/airflow"
 

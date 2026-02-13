@@ -1,11 +1,11 @@
-.astro/
+.astro
+.git
 .env
-__pycache__/
-*.py[cod]
 venv/
-env/
+__pycache__/
+*.pyc
 *.csv
 *.parquet
 data/
 .vscode/
-.git/
+.idea/
