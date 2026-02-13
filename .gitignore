@@ -1,4 +1,5 @@
-.astro/
+.astro/*
+!.astro/config.yaml
 .env
 __pycache__/
 *.py[cod]
@@ -8,4 +9,4 @@ env/
 *.parquet
 data/
 .vscode/
-.git/
+.idea/
