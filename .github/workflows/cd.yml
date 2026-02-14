@@ -31,12 +31,3 @@ jobs:
             matheusbeuren/spacex-etl:${{ github.sha }}
           cache-from: type=registry,ref=matheusbeuren/spacex-etl:latest
           cache-to: type=inline
-
-      - name: Image info
-        run: |
-          echo "Imagem publicada com sucesso!"
-          echo "Docker Hub: https://hub.docker.com/r/matheusbeuren/spacex-etl"
-          echo ""
-          echo "Para usar:"
-          echo "docker pull matheusbeuren/spacex-etl:latest"
-          echo "docker pull matheusbeuren/spacex-etl:${{ github.sha }}"
